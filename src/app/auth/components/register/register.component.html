@@ -1,0 +1,54 @@
+<form id="login-form" (ngSubmit)="register()" style="display: block;">
+
+      <div class="form-group">
+          <label for="name"  class="cols-sm-2 control-label">Your Name</label>
+          <div class="cols-sm-10">
+            <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+              <input type="text" [(ngModel)]="user.name" class="form-control" name="name" id="name"  placeholder="Enter your Name"/>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="email" class="cols-sm-2 control-label">Your Email</label>
+          <div class="cols-sm-10">
+            <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+              <input type="text" [(ngModel)]="user.username" class="form-control" name="email" id="email"  placeholder="Enter your Email"/>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="form-group">
+          <label for="password"  class="cols-sm-2 control-label">Password</label>
+          <div class="cols-sm-10">
+            <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+              <input type="password" name="password" id ="password"[(ngModel)]="user.password" required id="passsword" class="form-control" name="password" id="password"  placeholder="Enter your Password"/>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="password" class="cols-sm-2 control-label">Confirm Password</label>
+          <div class="cols-sm-10">
+            <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+              <input type="password" id="confirmPassword" name="confirmPassword" [ngModel]="user.confirmPassword" required validateEqual="password" #confirmPassword="ngModel">
+
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="row">
+            <div class="col-sm-6 col-sm-offset-3">
+              <input type="submit" name="login-submit" id="login-submit" tabindex="4" class="form-control btn btn-login" value="Register">
+            </div>
+          </div>
+        </div>
+
+</form>
