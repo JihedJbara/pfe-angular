@@ -1,14 +1,14 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { AppComponent } from './app.component';
-import { AppRoutingModule } from './/app-routing.module';
-import { DashboardComponent } from './dashboard/dashboard.component';
+import {BrowserModule} from '@angular/platform-browser';
+import {LOCALE_ID, NgModule} from '@angular/core';
+import {FormsModule} from '@angular/forms'; // <-- NgModel lives here
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {AppComponent} from './app.component';
+import {AppRoutingModule} from './/app-routing.module';
+import {DashboardComponent} from './dashboard/dashboard.component';
 import {HttpModule} from "@angular/http";
 import {HttpClientModule} from "@angular/common/http";
-import { UserComponent } from './user/user.component';
-import { AdminComponent } from './admin/admin.component';
-import { LOCALE_ID} from '@angular/core';
-
+import {UserComponent} from './user/user.component';
+import {AdminComponent} from './admin/admin.component';
 
 
 @NgModule({
@@ -24,15 +24,18 @@ import { LOCALE_ID} from '@angular/core';
     AppRoutingModule,
     HttpClientModule,
     HttpModule,
+    FormsModule,
+    NgbModule.forRoot(),
   ],
   providers: [
-    { provide: LOCALE_ID, useValue: 'fr' },
+    {provide: LOCALE_ID, useValue: 'fr'},
 
 
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
 
 
 
