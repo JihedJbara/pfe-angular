@@ -12,27 +12,27 @@ import {AdminComponent} from './admin/admin.component';
 
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    DashboardComponent,
-    UserComponent,
-    AdminComponent,
+    declarations: [
+        AppComponent,
+        DashboardComponent,
+        UserComponent,
+        AdminComponent,
 
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    HttpModule,
-    FormsModule,
-    NgbModule.forRoot(),
-  ],
-  providers: [
-    {provide: LOCALE_ID, useValue: 'fr'},
+    ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        HttpClientModule,
+        HttpModule,
+        FormsModule,
+        NgbModule.forRoot(),
+    ],
+    providers: [
+        {provide: LOCALE_ID, useValue: 'en'},
 
 
-  ],
-  bootstrap: [AppComponent]
+    ],
+    bootstrap: [AppComponent]
 })
 export class AppModule {
 }
