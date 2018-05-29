@@ -1,160 +1,253 @@
 <nav aria-label="breadcrumb" class="mt-1">
-    <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a routerLink="/dashboard">Accueil</a></li>
-        <li class="breadcrumb-item">RH</li>
-        <li class="breadcrumb-item active" aria-current="page">Mes notes de frais</li>
-    </ol>
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a routerLink="/dashboard">Accueil</a></li>
+    <li class="breadcrumb-item">RH</li>
+    <li class="breadcrumb-item active" aria-current="page">Mes notes de frais</li>
+  </ol>
 </nav>
 
 <div class="d-flex align-items-center p-3 my-3 text-white-50 bg-primary box-shadow">
-    <div class="lh-100">
-        <h6 class="mb-0 text-white lh-100">Mes notes de frais</h6>
-        <small>Liste</small>
-    </div>
-    <div class="ml-auto actions">
-        <a href="" class="btn btn-success"><i class="fas fa-plus"></i></a>
-    </div>
+  <div class="lh-100">
+    <h6 class="mb-0 text-white lh-100">Mes notes de frais</h6>
+    <small>Liste</small>
+  </div>
+  <div class="ml-auto actions">
+    <a href="" class="btn btn-success"><i class="fas fa-plus"></i></a>
+  </div>
 </div>
 
 <div class="my-12">
 
-    <div class="card mb-2">
-        <div class="card-header" role="button" (click)="isCollapsedSearch = !isCollapsedSearch"
-             [attr.aria-expanded]="!isCollapsedSearch" aria-controls="collapseexpensesearchbody">
-            <div class="d-flex">
-                <div>
-                    <i class="fas fa-search"></i> Recherche
-                </div>
-                <i class="fas fa-plus-circle ml-auto align-self-center"></i>
+  <div class="card mb-2">
+    <div class="card-header text-primary" role="button" (click)="isCollapsedSearch = !isCollapsedSearch"
+         [attr.aria-expanded]="!isCollapsedSearch" aria-controls="collapseexpensesearchbody">
+      <div class="d-flex">
+        <div>
+          <i class="fas fa-search"></i> Recherche
+        </div>
+        <i class="fas fa-plus-circle ml-auto align-self-center"></i>
+      </div>
+    </div>
+    <div class="card-body" [ngbCollapse]="!isCollapsedSearch" id="collapseexpensesearchbody">
+      <form>
+        <div class="row">
+          <div class="col-md-5">
+            <div class="form-group row">
+              <label for="input1-1" class="col-sm-4 col-form-label col-form-label-sm text-right">Status</label>
+              <div class="col-sm-8">
+                <select id="input1-1" class="form-control form-control-sm">
+                  <option selected>Selection status</option>
+                  <option>...</option>
+                  <option>...</option>
+                  <option>...</option>
+                </select>
+              </div>
             </div>
-        </div>
-        <div class="card-body" [ngbCollapse]="isCollapsedSearch" id="collapseexpensesearchbody">
-            <form>
-                <div class="row">
-                    <div class="col-md-5">
-                        <div class="form-group row">
-                            <label for="input1-1" class="col-sm-4 col-form-label col-form-label-sm text-right">Status</label>
-                            <div class="col-sm-8">
-                                <select id="input1-1" class="form-control form-control-sm">
-                                    <option selected>Selection status</option>
-                                    <option>...</option>
-                                    <option>...</option>
-                                    <option>...</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="input1-2" class="col-sm-4 col-form-label col-form-label-sm text-right">Référence</label>
-                            <div class="col-sm-8">
-                                <input type="text" class="form-control form-control-sm" id="input1-2" >
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="input1-3" class="col-sm-4 col-form-label col-form-label-sm text-right">Total réel</label>
-                            <div class="col-sm-4">
-                                <input type="text" class="form-control form-control-sm" id="input1-3" placeholder="sup. à">
-                            </div>
-                            <div class="col-sm-4">
-                                <input type="text" class="form-control form-control-sm" id="input1-4" placeholder="inf. à">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="offset-md-1 col-md-5">
-                        <div class="form-group row">
-                            <label for="input2-1" class="col-sm-4 col-form-label col-form-label-sm text-right">Date demande</label>
+            <div class="form-group row">
+              <label for="input1-2" class="col-sm-4 col-form-label col-form-label-sm text-right">Référence</label>
+              <div class="col-sm-8">
+                <input type="text" class="form-control form-control-sm" id="input1-2">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="input1-3" class="col-sm-4 col-form-label col-form-label-sm text-right">Total réel</label>
+              <div class="col-sm-4">
+                <input type="text" class="form-control form-control-sm" id="input1-3" placeholder="sup. à">
+              </div>
+              <div class="col-sm-4">
+                <input type="text" class="form-control form-control-sm" id="input1-4" placeholder="inf. à">
+              </div>
+            </div>
+          </div>
+          <div class="offset-md-1 col-md-5">
+            <div class="form-group row">
+              <label for="input2-1" class="col-sm-4 col-form-label col-form-label-sm text-right">Date demande</label>
 
-                                <div class="col-sm-4">
-                                    <!--input type="text" class="form-control form-control-sm" id="input2-1" placeholder="sup. à"-->
-                                    <div class="input-group">
-                                        <input class="form-control form-control-sm" placeholder="yyyy-mm-dd"
-                                               name="dp" [(ngModel)]="modeldatesup" ngbDatepicker #dsup="ngbDatepicker">
-                                        <div class="input-group-append">
-                                            <button class="btn btn-outline-secondary" (click)="dsup.toggle()" type="button">
-                                                <i class="fas fa-calendar"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            <div class="col-sm-4">
-                                <!--input type="text" class="form-control form-control-sm" id="input2-2" placeholder="inf. à"-->
-                                <div class="input-group">
-                                    <input class="form-control form-control-sm" placeholder="yyyy-mm-dd"
-                                           name="dp" [(ngModel)]="modeldateinf" ngbDatepicker #dinf="ngbDatepicker">
-                                    <div class="input-group-append">
-                                        <button class="btn btn-outline-secondary" (click)="dinf.toggle()" type="button">
-                                            <i class="fas fa-calendar"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="form-group row">
-                            <label for="input2-3" class="col-sm-4 col-form-label col-form-label-sm text-right">Libellè</label>
-                            <div class="col-sm-8">
-                                <input type="text" class="form-control form-control-sm" id="input2-3" >
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="input2-4" class="col-sm-4 col-form-label col-form-label-sm text-right">Total remborsé</label>
-                            <div class="col-sm-4">
-                                <input type="text" class="form-control form-control-sm" id="input2-4" placeholder="sup. à">
-                            </div>
-                            <div class="col-sm-4">
-                                <input type="text" class="form-control form-control-sm" id="input2-5" placeholder="inf. à">
-                            </div>
-                        </div>
-                    </div>
+              <div class="col-sm-4">
+                <!--input type="text" class="form-control form-control-sm" id="input2-1" placeholder="sup. à"-->
+                <div class="input-group">
+                  <input class="form-control form-control-sm" placeholder="yyyy-mm-dd"
+                         name="dp" [(ngModel)]="modeldatesup" ngbDatepicker #dsup="ngbDatepicker">
+                  <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" (click)="dsup.toggle()" type="button">
+                      <i class="fas fa-calendar"></i>
+                    </button>
+                  </div>
                 </div>
-            </form>
+              </div>
+              <div class="col-sm-4">
+                <!--input type="text" class="form-control form-control-sm" id="input2-2" placeholder="inf. à"-->
+                <div class="input-group">
+                  <input class="form-control form-control-sm" placeholder="yyyy-mm-dd"
+                         name="dp" [(ngModel)]="modeldateinf" ngbDatepicker #dinf="ngbDatepicker">
+                  <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" (click)="dinf.toggle()" type="button">
+                      <i class="fas fa-calendar"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+            <div class="form-group row">
+              <label for="input2-3" class="col-sm-4 col-form-label col-form-label-sm text-right">Libellè</label>
+              <div class="col-sm-8">
+                <input type="text" class="form-control form-control-sm" id="input2-3">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="input2-4" class="col-sm-4 col-form-label col-form-label-sm text-right">Total remborsé</label>
+              <div class="col-sm-4">
+                <input type="text" class="form-control form-control-sm" id="input2-4" placeholder="sup. à">
+              </div>
+              <div class="col-sm-4">
+                <input type="text" class="form-control form-control-sm" id="input2-5" placeholder="inf. à">
+              </div>
+            </div>
+          </div>
         </div>
+      </form>
+    </div>
+  </div>
+
+  <nav aria-label="Page navigation">
+    <ul class="pagination pagination-sm justify-content-center">
+      <li class="page-item">
+        <a class="page-link" href="#" aria-label="Previous">
+          <span aria-hidden="true">&laquo;</span>
+          <span class="sr-only">Previous</span>
+        </a>
+      </li>
+      <li class="page-item"><a class="page-link" href="#">1</a></li>
+      <li class="page-item"><a class="page-link" href="#">2</a></li>
+      <li class="page-item"><a class="page-link" href="#">3</a></li>
+      <li class="page-item">
+        <a class="page-link" href="#" aria-label="Next">
+          <span aria-hidden="true">&raquo;</span>
+          <span class="sr-only">Next</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="card mb-3">
+    <div class="card-header">
+      <div class="row">
+        <div class="col-md-3 offset-md-1">Statut</div>
+        <div class="col-md-2">Date demande</div>
+        <div class="col-md-2">Libellé</div>
+        <div class="col-md-2">Total réel</div>
+        <div class="col-md-2">Total remboursée</div>
+      </div>
     </div>
 
-    <div class="text-center text-secondary">
-        <i class="fas fa-th-list fa-4x"></i>
-        <ngb-tabset>
-            <ngb-tab>
-                <ng-template ngbTabTitle><span clas='text-uppercase'>Acceuil</span></ng-template>
-                <ng-template ngbTabContent>
-                    <p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua,
-                        retro synth
-                        master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit
-                        butcher retro keffiyeh
-                        dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip
-                        placeat salvia cillum
-                        iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.</p>
-                </ng-template>
-            </ngb-tab>
-            <ngb-tab>
-                <ng-template ngbTabTitle><span clas='text-uppercase'>Ma gestion</span></ng-template>
-                <ng-template ngbTabContent>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin
-                    coffee squid.
-                    <p>Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four
-                        loko farm-to-table
-                        craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts
-                        ullamco ad vinyl
-                        cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit. Keytar
-                        helvetica VHS salvia
-                        yr, vero magna velit sapiente labore stumptown. Vegan fanny pack odio cillum wes anderson 8-bit,
-                        sustainable jean
-                        shorts beard ut DIY ethical culpa terry richardson biodiesel. Art party scenester stumptown,
-                        tumblr butcher vero
-                        sint qui sapiente accusamus tattooed echo park.</p>
-                </ng-template>
-            </ngb-tab>
-            <ngb-tab>
-                <ng-template ngbTabTitle><span clas='text-uppercase'>Mon espace RH</span></ng-template>
-                <ng-template ngbTabContent>
-                    <p>Sed commodo, leo at suscipit dictum, quam est porttitor sapien, eget sodales nibh elit id diam.
-                        Nulla facilisi. Donec egestas ligula vitae odio interdum aliquet. Duis lectus turpis, luctus
-                        eget tincidunt eu, congue et odio. Duis pharetra et nisl at faucibus. Quisque luctus pulvinar
-                        arcu, et molestie lectus ultrices et. Sed diam urna, egestas ut ipsum vel, volutpat volutpat
-                        neque. Praesent fringilla tortor arcu. Vivamus faucibus nisl enim, nec tristique ipsum euismod
-                        facilisis. Morbi ut bibendum est, eu tincidunt odio. Orci varius natoque penatibus et magnis dis
-                        parturient montes, nascetur ridiculus mus. Mauris aliquet odio ac lorem aliquet ultricies in
-                        eget neque. Phasellus nec tortor vel tellus pulvinar feugiat.</p>
-                </ng-template>
-            </ngb-tab>
-        </ngb-tabset>
+    <ul class="list-group list-group-flush table-expense">
+      <li class="list-group-item">
+        <div class="row bg-primary p-2">
+          <div class="col-md-12 text-light">Attente d'information</div>
+        </div>
+        <div class="row pt-1 pb-1">
+          <div class="col-md-1">
+            <div ngbDropdown class="d-inline-block">
+              <button class="btn btn-outline-primary btn-sm" id="dropdownBasic1" ngbDropdownToggle>Actions</button>
+              <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                <button class="dropdown-item small">Modifier la ligne</button>
+                <button class="dropdown-item small">Supprimer</button>
+                <button class="dropdown-item small">attacher une piéce jointe</button>
+                <button class="dropdown-item small">Ajouter un commentaire</button>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            Attente d'information
+          </div>
+          <div class="col-md-2">27/05/2018</div>
+          <div class="col-md-2">Salon des entreprises</div>
+          <div class="col-md-2">200,00</div>
+          <div class="col-md-2">110,00 <i class="fas fa-comment text-primary"></i></div>
+        </div>
+      </li>
+      <li class="list-group-item">
+        <div class="row bg-primary p-2">
+          <div class="col-md-12 text-light">Attente d'information</div>
+        </div>
+        <div class="row pt-1 pb-1">
+          <div class="col-md-1">
+            <div ngbDropdown class="d-inline-block">
+              <button class="btn btn-outline-primary btn-sm" id="dropdownBasic1" ngbDropdownToggle>Actions</button>
+              <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                <button class="dropdown-item small">Modifier la ligne</button>
+                <button class="dropdown-item small">Supprimer</button>
+                <button class="dropdown-item small">attacher une piéce jointe</button>
+                <button class="dropdown-item small">Ajouter un commentaire</button>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            Attente d'information
+          </div>
+          <div class="col-md-2">27/05/2018</div>
+          <div class="col-md-2">Salon des entreprises</div>
+          <div class="col-md-2">200,00</div>
+          <div class="col-md-2">110,00 <i class="fas fa-comment text-primary"></i></div>
+        </div>
+      </li>
+      <li class="list-group-item">
+        <div class="row bg-primary p-2">
+          <div class="col-md-12 text-light">Attente d'information</div>
+        </div>
+        <div class="row pt-1 pb-1">
+          <div class="col-md-1">
+            <div ngbDropdown class="d-inline-block">
+              <button class="btn btn-outline-primary btn-sm" id="dropdownBasic1" ngbDropdownToggle>Actions</button>
+              <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                <button class="dropdown-item small">Modifier la ligne</button>
+                <button class="dropdown-item small">Supprimer</button>
+                <button class="dropdown-item small">attacher une piéce jointe</button>
+                <button class="dropdown-item small">Ajouter un commentaire</button>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            Attente d'information
+          </div>
+          <div class="col-md-2">27/05/2018</div>
+          <div class="col-md-2">Salon des entreprises</div>
+          <div class="col-md-2">200,00</div>
+          <div class="col-md-2">110,00 <i class="fas fa-comment text-primary"></i></div>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+
+  <nav aria-label="Page navigation">
+    <ul class="pagination pagination-sm justify-content-center">
+      <li class="page-item">
+        <a class="page-link" href="#" aria-label="Previous">
+          <span aria-hidden="true">&laquo;</span>
+          <span class="sr-only">Previous</span>
+        </a>
+      </li>
+      <li class="page-item"><a class="page-link" href="#">1</a></li>
+      <li class="page-item"><a class="page-link" href="#">2</a></li>
+      <li class="page-item"><a class="page-link" href="#">3</a></li>
+      <li class="page-item">
+        <a class="page-link" href="#" aria-label="Next">
+          <span aria-hidden="true">&raquo;</span>
+          <span class="sr-only">Next</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="card">
+    <div class="card-body">
+      <div class="h5">Actions</div>
+      <ul class="list-unstyled">
+        <li><a href="" class="btn btn-link btn-sm">Saisir une nouvelle note de frais</a></li>
+        <li><a href="" class="btn btn-link btn-sm">imprimer</a></li>
+      </ul>
     </div>
+  </div>
 </div>
